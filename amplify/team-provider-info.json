@@ -10,6 +10,18 @@
             "StackName": "amplify-d3logreg-logreg-130314",
             "StackId": "arn:aws:cloudformation:us-east-1:170985111404:stack/amplify-d3logreg-logreg-130314/9987aa70-46c8-11ea-912b-12328959da6d",
             "AmplifyAppId": "ds8qy95l2git"
+        },
+        "categories": {
+            "function": {
+                "d3logreg6e0acf2dCustomMessage": {
+                    "REDIRECTURL": "",
+                    "EMAILSUBJECT": "D3fam account verification",
+                    "EMAILMESSAGE": "Dear User, Please verify your account by clicking on the link below."
+                }
+            },
+            "auth": {
+                "d3logreg5923c18f": {}
+            }
         }
     }
 }

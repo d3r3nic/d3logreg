@@ -1,25 +1,65 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+
+import Amplify from 'aws-amplify';
+import awsconfig from './aws-exports';
+import { withAuthenticator } from 'aws-amplify-react'; // or 'aws-amplify-react-native';
+
+Amplify.configure(awsconfig);
+
+// sign up configs
+const signUpConfig = {
+  header: 'Create your BarFam Account',
+  hideAllDefaults: true,
+  defaultCountryCode: '1',
+  signUpFields: [
+    {
+      label: 'Name',
+      key: 'name',
+      required: true,
+      displayOrder: 1,
+      type: 'string'
+    },
+    {
+      label: 'Username',
+      key: 'username',
+      required: true,
+      displayOrder: 2,
+      type: 'string'
+    },
+    {
+      label: 'Email',
+      key: 'email',
+      required: true,
+      displayOrder: 3,
+      type: 'email'
+    },
+    {
+      label: 'Password',
+      key: 'password',
+      required: true,
+      displayOrder: 4,
+      type: 'password'
+    },
+    {
+      label: 'Phone Number',
+      key: 'number',
+      required: true,
+      displayOrder: 4,
+      type: 'number'
+    },
+    
+  ]
+};
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
     </div>
   );
 }
 
-export default App;
+
+export default withAuthenticator(App, { signUpConfig });

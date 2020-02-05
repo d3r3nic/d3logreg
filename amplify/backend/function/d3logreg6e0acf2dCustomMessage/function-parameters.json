@@ -1,0 +1,14 @@
+{
+    "trigger": true,
+    "modules": [
+        "verification-link"
+    ],
+    "parentResource": "d3logreg6e0acf2d",
+    "functionName": "d3logreg6e0acf2dCustomMessage",
+    "parentStack": "auth",
+    "triggerEnvs": "[{\"key\":\"RESOURCENAME\",\"value\":\"resourceName\"}]",
+    "triggerTemplate": "CustomMessage.json.ejs",
+    "roleName": "d3logreg6e0acf2dCustomMessage",
+    "skipEdit": true,
+    "resourceName": "d3logreg6e0acf2dCustomMessage"
+}

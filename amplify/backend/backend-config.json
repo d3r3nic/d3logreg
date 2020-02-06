@@ -19,5 +19,11 @@
 			"dependsOn": [],
 			"customAuth": false
 		}
+<<<<<<< Updated upstream
 	}
+=======
+	},
+	"analytics": {},
+	"storage": {}
+>>>>>>> Stashed changes
 }

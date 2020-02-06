@@ -3,14 +3,12 @@ import './App.css';
 
 import awsconfig from './aws-exports';
 
-import Amplify, { Analytics, Storage } from 'aws-amplify';
-import { withAuthenticator, S3Album } from 'aws-amplify-react';
+import Amplify from 'aws-amplify';
+import { withAuthenticator } from 'aws-amplify-react';
 
 // import axios from 'axios';
 
 Amplify.configure(awsconfig);
-// (2) use the Storage category to upload files to a private user location after someone has logged in. 
-Storage.configure({ level: 'private' });
 
 //input configurations and attributes
 const signUpConfig = {
@@ -62,27 +60,10 @@ class App extends Component{
   }
 
 
-  // (2)
-  uploadFile = (evt) => {
-    const file = evt.target.files[0];
-    const name = file.name;
-  
-    Storage.put(name, file).then(() => {
-      this.setState({ file: name });
-    })
-  }
-  
-  componentDidMount() {
-    Analytics.record('Amplify_CLI');
-  }
-  // 
-
   render(){
     return(
     <div className="App">
-        <p> Pick a file</p>
-        <input type="file" onChange={this.uploadFile} />
-        <S3Album level="private" path='' />
+
     </div>
     )
   }

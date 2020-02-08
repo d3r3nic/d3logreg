@@ -6,7 +6,7 @@ import awsconfig from './aws-exports';
 import Amplify from 'aws-amplify';
 import { withAuthenticator } from 'aws-amplify-react';
 
-// import axios from 'axios';
+import axios from 'axios';
 
 Amplify.configure(awsconfig);
 
@@ -51,19 +51,37 @@ const signUpConfig = {
     
   ]
 };
-
-
 class App extends Component{
 
-  state={
-    file:null
+  state = { 
+    selectedFile: null 
   }
 
+  fileChangedHandler = event => {
+    this.setState({ selectedFile: event.target.files[0] })
+  }
+
+
+
+  onPsUrlRequest = () => {
+    axios.post('https://47dt3323ck.execute-api.us-east-1.amazonaws.com/reqSignedUrl')
+    .then(res => {
+      axios.put(res.data.url,this.state.selectedFile)
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
+    })
+    .catch(err =>{
+      console.log(err);
+    });
+  }
+  
 
   render(){
     return(
     <div className="App">
-
+      <h1>Hello</h1>
+      <input type="file" onChange={this.fileChangedHandler}/>
+      <button onClick={this.onPsUrlRequest}>Upload!</button>
     </div>
     )
   }
